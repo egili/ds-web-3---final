@@ -1,0 +1,10 @@
+aside.logo {
+    background-color: #303030;
+}
+
+aside.logo img {
+    width: 55%;
+    padding: 5px;
+    margin: auto;
+    display: block;
+}

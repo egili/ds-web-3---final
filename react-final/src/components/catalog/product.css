@@ -1,0 +1,17 @@
+.card {
+    text-align: center;
+    margin: 10px;
+}
+
+.ImgStyle{
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    height:150px;
+}
+
+.btnStyle{
+    display: flex;
+    justify-content: center;
+    margin-right: 140px;
+}
