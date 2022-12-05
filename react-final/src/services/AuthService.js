@@ -1,8 +1,6 @@
 import axios from "axios";
 
-
 const API_URL = "http://localhost:5255/api/Home/"; //Atenção na rota que talvez seja necessaria ser mudada
-
 
 const login = (email, senha) => {
     return axios
@@ -32,6 +30,5 @@ const AuthService = {
     logout,
     getCurrentUser,
 };
-
 
 export default AuthService;

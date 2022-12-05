@@ -35,8 +35,8 @@ export default class insertUser extends Component {
         let email = document.getElementById('email').value;
         let senha = document.getElementById('senha').value;
 
-        if(nome == '' || email == '' || senha == ''){
-            window.alert('erro, reveja as informações')
+        if(nome === '' || email === '' || senha === ''){
+            window.alert('erro, reveja as informações preenchidas')
             return
         }
 

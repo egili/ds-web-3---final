@@ -21,9 +21,14 @@ const getAuthenticatedBoard = async () => {
     });
 };
 
+const isCurrentUserAdm = () => {
+    return user.role == 'Cliente' ? false : true;
+}
+
 const UserService = {
     getPublicContent,
-    getAuthenticatedBoard
+    getAuthenticatedBoard,
+    isCurrentUserAdm
 };
 
 export default UserService;

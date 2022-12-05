@@ -46,7 +46,7 @@ export default class Produtos extends Component {
                                     <CurrencyFormat displayType={'text'} thousandSeparator={true} value={produto.valor} prefix={'R$ '} /> 
                                 </Card.Text>
                                 <div className='btnStyle'>
-                                    <Button href='/login' variant="secondary">Comprar</Button>
+                                    <Button href='/login' variant="secondary">Compre</Button>
                                 </div>
                             </Card.Body>
                         </Card>

@@ -18,7 +18,7 @@ const initialState = {
 export default class updateUser extends Component {
 
     state = { ...initialState }
-    
+
     componentDidMount() {
         axios(urlAPI)
             .then(resp => {
