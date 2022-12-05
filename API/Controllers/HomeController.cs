@@ -30,7 +30,6 @@ namespace ProjetoEscola_API.Controllers
         [AllowAnonymous]
         public ActionResult<dynamic> Login([FromBody] User usuario)
         {
-            //verifica se existe aluno a ser excluído
             var user = _context.Usuario.Where(u => u.email == usuario.email &&
 
             u.senha == usuario.senha)
@@ -39,18 +38,18 @@ namespace ProjetoEscola_API.Controllers
             if (user == null)
                 return Unauthorized("Usuário ou senha inválidos");
             var authClaims = new List<Claim> {
-new Claim(ClaimTypes.Name, user.email),
-new Claim(ClaimTypes.Role, user.role),
-new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-};
+                new Claim(ClaimTypes.Name, user.email),
+                new Claim(ClaimTypes.Role, user.role),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            };
             var token = GetToken(authClaims);
             user.senha = "";
-            return Ok(new
-            {
+            return Ok(new {
                 token = new JwtSecurityTokenHandler().WriteToken(token),
                 user = user
             });
         }
+        
         [HttpGet]
         [Route("anonymous")]
         [AllowAnonymous]
@@ -59,7 +58,7 @@ new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
-       public string Authenticated()
+        public string Authenticated()
         {
             if(User is not null && User.Identity is not null)
             {
@@ -85,7 +84,7 @@ new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         [HttpGet]
         [Route("Adm")]
         [Authorize(Roles = "Cliente")]
-       public string Adm() 
+        public string Adm() 
         {
             if(User is not null && User.Identity is not null)
             {

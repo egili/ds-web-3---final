@@ -5,6 +5,7 @@ import Main from '../template/main';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CurrencyFormat from 'react-currency-format';
 
 
 const title = "Catálogo";
@@ -42,7 +43,7 @@ export default class Produtos extends Component {
                             <Card.Body>
                                 <Card.Title><h4>{produto.modelo} <h5>{produto.marca}</h5> </h4></Card.Title>
                                 <Card.Text>
-                                    <h2>R${produto.valor}</h2>
+                                    <CurrencyFormat displayType={'text'} thousandSeparator={true} value={produto.valor} prefix={'R$ '} /> 
                                 </Card.Text>
                                 <div className='btnStyle'>
                                     <Button href='/login' variant="secondary">Comprar</Button>

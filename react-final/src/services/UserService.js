@@ -4,9 +4,7 @@ const API_URL = "http://localhost:5255/api/Home";
 
 // Alterar Produtos: role adm
 // Alterar Usuario: role user
-// Carrinho: role user
 // Listar Produtos: todos
-
 
 const user = JSON.parse(localStorage.getItem('user'));
 

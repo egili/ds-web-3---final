@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\olive\\Downloads\\Trab-Final-DS-Web-3-main\\Trab-Final-DS-Web-3-main\\API\\ProjetoEscola_API.csproj": {}
+    "C:\\Users\\eliseu.gili\\Documents\\Repositórios\\ds-web-3---final\\API\\ProjetoEscola_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\olive\\Downloads\\Trab-Final-DS-Web-3-main\\Trab-Final-DS-Web-3-main\\API\\ProjetoEscola_API.csproj": {
+    "C:\\Users\\eliseu.gili\\Documents\\Repositórios\\ds-web-3---final\\API\\ProjetoEscola_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\olive\\Downloads\\Trab-Final-DS-Web-3-main\\Trab-Final-DS-Web-3-main\\API\\ProjetoEscola_API.csproj",
+        "projectUniqueName": "C:\\Users\\eliseu.gili\\Documents\\Repositórios\\ds-web-3---final\\API\\ProjetoEscola_API.csproj",
         "projectName": "ProjetoEscola_API",
-        "projectPath": "C:\\Users\\olive\\Downloads\\Trab-Final-DS-Web-3-main\\Trab-Final-DS-Web-3-main\\API\\ProjetoEscola_API.csproj",
-        "packagesPath": "C:\\Users\\olive\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\olive\\Downloads\\Trab-Final-DS-Web-3-main\\Trab-Final-DS-Web-3-main\\API\\obj\\",
+        "projectPath": "C:\\Users\\eliseu.gili\\Documents\\Repositórios\\ds-web-3---final\\API\\ProjetoEscola_API.csproj",
+        "packagesPath": "C:\\Users\\eliseu.gili\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\eliseu.gili\\Documents\\Repositórios\\ds-web-3---final\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\olive\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\eliseu.gili\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,24 +66,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.11, 6.0.11]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.11, 6.0.11]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.11, 6.0.11]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.11, 6.0.11]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -94,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

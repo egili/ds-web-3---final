@@ -7,6 +7,9 @@ import Form from 'react-bootstrap/Form';
 import logo from '../../assets/logo-sem-fundo.png';
 import Toast from 'react-bootstrap/Toast';
 
+import { toast, ToastContainer } from "react-toastify"; 
+import "react-toastify/dist/ReactToastify.css"; 
+
 const title = "Cadastro";
 
 const urlAPI = "http://localhost:5255/api/Usuario";
@@ -32,6 +35,11 @@ export default class insertUser extends Component {
         let email = document.getElementById('email').value;
         let senha = document.getElementById('senha').value;
 
+        if(nome == '' || email == '' || senha == ''){
+            window.alert('erro, reveja as informações')
+            return
+        }
+
         const usuario = this.state.usuario;
 
         usuario.nome = String(nome);
@@ -43,19 +51,12 @@ export default class insertUser extends Component {
 
         axios[metodo](url, usuario)
             .then ((res)=> {
-                //TODO: Não tá funcionando a mensagem de que o usuário foi cadastrado.
-                console.log(res)
-                if (res.status === 200){
-                    return (
-                        <Toast>
-                          <Toast.Header>
-                            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-                            <strong className="me-auto">Bootstrap</strong>
-                            <small>11 mins ago</small>
-                          </Toast.Header>
-                          <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-                        </Toast>
-                      );
+                console.log('res aqui ' + res)
+                if (res){
+                    window.alert('sucesso ao inserir novo usuario')
+                } else {
+                    window.alert('erro ao inserir novo usuario')
+                    toast.error("erro")
                 }
             });
     }
@@ -66,19 +67,19 @@ export default class insertUser extends Component {
                 <img className='imgStyle' src={logo} alt="Logo" />
                 <Form className='form-style'>
 
-                    <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Group className="mb-3">
                         <Form.Text>Nome</Form.Text>
-                        <Form.Control id="nome" type="string" placeholder="Nome" />
+                        <Form.Control id="nome" type="string" placeholder="Nome" required/>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3">
                         <Form.Text>Email</Form.Text>
-                        <Form.Control type="email" placeholder="Insira seu email" id="email" />
+                        <Form.Control type="email" placeholder="Insira seu email" id="email" required/>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Group className="mb-3">
                         <Form.Text>Senha</Form.Text>
-                        <Form.Control id="senha" type="password" placeholder="Senha" />
+                        <Form.Control id="senha" type="password" placeholder="Senha" required/>
                     </Form.Group>
                     <div className='BtnPosition'>
                         <Button className='btnInsert' variant="secondary" type="submit" onClick={e => this.salvar(e)}>Cadastrar</Button>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import './updateUser.css';
 import Main from '../template/main';
 
-const title = "Alteração Usuários";
+const title = "Alteração de dados";
 
 const urlAPI = "http://localhost:5255/api/usuario";
 
@@ -11,7 +11,7 @@ const urlAPI = "http://localhost:5255/api/usuario";
 //trazer os dados de todos.
 
 const initialState = {
-    usuario: {id: 0, nome: '', email: '', senha: 0 },
+    usuario: {id: 0, nome: '', email: '', senha: '', role: '' },
     lista: [],
 }
 
@@ -20,8 +20,9 @@ export default class updateUser extends Component {
     state = { ...initialState }
     
     componentDidMount() {
-        axios(urlAPI).then(resp => {
-            this.setState({ lista: resp.data })
+        axios(urlAPI)
+            .then(resp => {
+                this.setState({ lista: resp.data })
         });
     }
 
@@ -54,7 +55,6 @@ export default class updateUser extends Component {
         this.setState({ usuario });
     }
 
-
     carregar(usuario) {
         this.setState({ usuario })
     }
@@ -79,7 +79,7 @@ export default class updateUser extends Component {
                 <input
                     type="text"
                     id="nome"
-                    placeholder="Nome do aluno"
+                    placeholder="Nome"
                     className="form-input"
                     name="nome"
                     value={this.state.usuario.nome}
@@ -90,7 +90,7 @@ export default class updateUser extends Component {
                 <input
                     type="text"
                     id="email"
-                    placeholder="Email do usuario"
+                    placeholder="Email"
                     className="form-input"
                     name="email"
                     value={this.state.usuario.email}
@@ -129,7 +129,7 @@ export default class updateUser extends Component {
                         <tr className="cabecTabela">
                             <th className="tabTituloNome">Nome</th>
                             <th className="tabTituloEmail">Email</th>
-                            <th className="tabTituloSenha">Senha</th>
+                            {/* <th className="tabTituloSenha">Senha</th> */}
                             <th></th>
                             <th></th>
                         </tr>
@@ -140,7 +140,7 @@ export default class updateUser extends Component {
                             <tr key={usuario.id}>
                                 <td>{usuario.nome}</td>
                                 <td>{usuario.email}</td>
-                                <td>{usuario.senha}</td>
+                                {/* <td>{usuario.senha}</td> */}
                                 <td>
                                     <button onClick={() => this.carregar(usuario)} >
                                         Alterar
