@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CurrencyFormat from 'react-currency-format';
 
-
 const title = "Catálogo";
 const urlAPI = "http://localhost:5255/api/produto";
 

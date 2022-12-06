@@ -3,7 +3,6 @@ import './menu.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import AuthService from '../../services/AuthService';
 
 export default function Menu(props) {
@@ -27,8 +26,14 @@ export default function Menu(props) {
                     ) : (
                         <Nav.Link href="/login">Login</Nav.Link>
                     )}
-                    <Nav.Link href="/cadastro">Cadastrar-se</Nav.Link>
-                    <Nav.Link href="/alterar">Alterar dados</Nav.Link>
+
+                    {currentUser ? (
+                        <Nav.Link href="/alterar">Alterar dados</Nav.Link>
+                    ) : (
+                        <Nav.Link href="/cadastro">Cadastrar-se</Nav.Link>
+                    )}
+
+                    <Nav.Link href="/alterarProdutos">Alterar produtos</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>

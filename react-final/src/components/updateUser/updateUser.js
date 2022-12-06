@@ -5,7 +5,7 @@ import Main from '../template/main';
 
 const title = "Alteração de dados";
 
-const urlAPI = "http://localhost:5255/api/usuario";
+const urlAPI = "http://localhost:5255/api/Usuario";
 
 //TODO: Precisa trazer somente o usuario com o id logado, além disso precisa fazer na função "ADM"
 //trazer os dados de todos.
@@ -63,12 +63,11 @@ export default class updateUser extends Component {
         const url = urlAPI + "/" + usuario.id;
 
         if (window.confirm("Confirma remoção do usuario: " + usuario.id)) {
-            console.log("entrou no confirm");
             axios['delete'](url, usuario)
-                .then(resp => {
-                    const lista = this.getListaAtualizada(usuario, false)
-                    this.setState({ usuario: initialState.usuario, lista })
-                })
+            .then(resp => {
+                const lista = this.getListaAtualizada(usuario, false)
+                this.setState({ usuario: initialState.usuario, lista })
+            })
         }
     }
 
@@ -142,14 +141,10 @@ export default class updateUser extends Component {
                                 <td>{usuario.email}</td>
                                 {/* <td>{usuario.senha}</td> */}
                                 <td>
-                                    <button onClick={() => this.carregar(usuario)} >
-                                        Alterar
-                                    </button>
+                                    <button onClick={() => this.carregar(usuario)}>Atualizar</button>
                                 </td>
                                 <td>
-                                    <button onClick={() => this.remover(usuario)} >
-                                        Remover
-                                    </button>
+                                    <button onClick={() => this.remover(usuario)}>Excluir</button>
                                 </td>
                             </tr>
                         )}

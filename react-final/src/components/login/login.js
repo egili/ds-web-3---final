@@ -32,14 +32,12 @@ export default function Login() {
 
                         localStorage.getItem("user"));
                     navigate("/");
-                    window.location.reload(); // atualiza o localStorage
+                    window.location.reload();
                 },
                 (error) => {
                     const resMessage =
-                        (error.response &&
-                            error.response.data &&
-                            error.response.data.message) ||
-                        error.message ||
+                        (error.response && error.response.data && error.response.data.message) 
+                        || error.message ||
                         error.toString();
                     setMessage(resMessage);
                 }

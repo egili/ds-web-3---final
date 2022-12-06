@@ -8,6 +8,7 @@ import AuthService from './services/AuthService';
 import Catalog from './components/catalog/product';
 import Insert from './components/insertUser/insertUser';
 import UpdateUser from './components/updateUser/updateUser';
+import UpdateProduct from './components/updateProduct/updateProduct';
 
 export default function Rotas() {
 
@@ -40,6 +41,15 @@ export default function Rotas() {
             ) : (
             <Route path='/alterar' element=
                 {<Main title="Atualizar dados!">
+                    <div>Não Autorizado!</div>
+                </Main>} />     
+            )}
+
+            {currentUser ? (
+                <Route path='/alterarProdutos' element={<UpdateProduct />} />
+            ) : (
+            <Route path='/alterarProdutos' element=
+                {<Main title="Atualizar produtos!">
                     <div>Não Autorizado!</div>
                 </Main>} />     
             )}
