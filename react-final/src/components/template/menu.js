@@ -33,7 +33,7 @@ export default function Menu(props) {
                         <Nav.Link href="/cadastro">Cadastrar-se</Nav.Link>
                     )}
 
-                    <Nav.Link href="/alterarProdutos">Alterar produtos</Nav.Link>
+                    <Nav.Link href="/alterarprodutos">Alterar produtos</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>

@@ -46,10 +46,10 @@ export default function Rotas() {
             )}
 
             {currentUser ? (
-                <Route path='/alterarProdutos' element={<UpdateProduct />} />
+                <Route path='/alterarprodutos' element={<UpdateProduct />} />
             ) : (
-            <Route path='/alterarProdutos' element=
-                {<Main title="Atualizar produtos!">
+            <Route path='/alterarprodutos' element=
+                {<Main title="Alterar Produtos">
                     <div>Não Autorizado!</div>
                 </Main>} />     
             )}
