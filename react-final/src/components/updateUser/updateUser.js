@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './updateUser.css';
 import Main from '../template/main';
+import UserService from '../../services/UserService';
 
 const title = "Alteração de dados";
 
 const urlAPI = "http://localhost:5255/api/Usuario";
+const urlAutorizacao = "http://localhost:5255/api/Home/";
 
-//TODO: Precisa trazer somente o usuario com o id logado, além disso precisa fazer na função "ADM"
-//trazer os dados de todos.
+const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
-    usuario: {id: 0, nome: '', email: '', senha: '', role: '' },
+    usuario: {id: 0, nome: '', email: '', senha: '', role: 'Cliente' },
     lista: [],
 }
 
@@ -24,6 +25,21 @@ export default class updateUser extends Component {
             .then(resp => {
                 this.setState({ lista: resp.data })
         });
+
+        axios(urlAutorizacao, { headers: { Authorization: 'Bearer ' + user.token } })
+            .then(result => {
+                this.setState({ lista: result.data });
+            },
+                (error) => {
+                    const _mens =
+                        (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+                    this.setState({ mens: _mens });
+                }
+            );
     }
 
     limpar() {
@@ -98,22 +114,20 @@ export default class updateUser extends Component {
 
                 <label> Senha: </label>
                 <input
-                    type="text"
+                    type="password"
                     id="senha"
-                    placeholder="Senha do usuario"
+                    placeholder="Senha"
                     className="form-input"
                     name="senha"
                     value={this.state.usuario.senha}
                     onChange={e => this.atualizaCampo(e)}
                 />
 
-                <button className="btnSalvar"
-                    onClick={e => this.salvar(e)} >
+                <button className="btnSalvar" onClick={e => this.salvar(e)} >
                     Salvar
                 </button>
                 
-                <button className="btnCancelar"
-                    onClick={e => this.limpar(e)} >
+                <button className="btnCancelar" onClick={e => this.limpar(e)} >
                     Cancelar
                 </button>
             </div>
@@ -139,7 +153,6 @@ export default class updateUser extends Component {
                             <tr key={usuario.id}>
                                 <td>{usuario.nome}</td>
                                 <td>{usuario.email}</td>
-                                {/* <td>{usuario.senha}</td> */}
                                 <td>
                                     <button onClick={() => this.carregar(usuario)}>Atualizar</button>
                                 </td>

@@ -91,10 +91,12 @@ namespace ProjetoEscola_API.Controllers
             try
             {
                 var result = await _context.Produto.FindAsync(id);
+                
                 if (id != result.id)
                 {
                     return BadRequest();
                 }
+
                 result.id = dadosProdutoAlt.id;
                 result.valor = dadosProdutoAlt.valor;
                 result.marca = dadosProdutoAlt.marca;

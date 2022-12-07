@@ -9,6 +9,7 @@ import Catalog from './components/catalog/product';
 import Insert from './components/insertUser/insertUser';
 import UpdateUser from './components/updateUser/updateUser';
 import UpdateProduct from './components/updateProduct/updateProduct';
+import UserService from './services/UserService';
 
 export default function Rotas() {
 
@@ -49,7 +50,7 @@ export default function Rotas() {
                 <Route path='/alterarprodutos' element={<UpdateProduct />} />
             ) : (
             <Route path='/alterarprodutos' element=
-                {<Main title="Alterar Produtos">
+                {<Main title="Alterar Produtos!">
                     <div>Não Autorizado!</div>
                 </Main>} />     
             )}

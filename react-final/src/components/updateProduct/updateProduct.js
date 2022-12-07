@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './updateProduct.css';
 import Main from '../template/main';
+import UserService from '../../services/UserService';
 
-const title = "Alterar Produtos";
+const title = "Alterar/Inserir Produtos";
 
-const urlAutoriza = "http://localhost:5255/api/Home/Adm";
+const urlAutorizacao = "http://localhost:5255/api/Home/";
 const urlAPI = "http://localhost:5255/api/produto";
 
-
 const initialState = {
-    produto: { id: 0, valor: 0.0, marca: '', modelo: '' },
+    produto: { id: 0, valor: '', marca: '', modelo: '' },
     lista: [],
 }
 
@@ -27,7 +27,7 @@ export default class updateProduct extends Component {
             this.setState({ lista: result.data })
         });
 
-        axios(urlAutoriza, { headers: { Authorization: 'Bearer ' + user.token } })
+        axios(urlAutorizacao, { headers: { Authorization: 'Bearer ' + user.token } })
             .then(result => {
                 this.setState({ lista: result.data });
             },
@@ -43,7 +43,6 @@ export default class updateProduct extends Component {
             );
     }
 
-
     limpar() {
         this.setState({ produto: initialState.produto });
     } 
@@ -52,9 +51,10 @@ export default class updateProduct extends Component {
         const produto = this.state.produto;
         const metodo = produto.id ? 'put' : 'post';
         const url = produto.id ? `${urlAPI}/${produto.id}` : urlAPI;
+
         axios[metodo](url, produto)
-        .then(resp => {
-            const lista = this.getListaAtualizada(resp.data)
+        .then(result => {
+            const lista = this.getListaAtualizada(result.data)
             this.setState({ produto: initialState.produto, lista })
         })
     }
@@ -78,8 +78,10 @@ export default class updateProduct extends Component {
 
     remover(produto) {
         const url = urlAPI + "/" + produto.id;
+
         if (window.confirm("Confirma remoção do produto: " + produto.id)) {
             console.log("entrou no confirm");
+
             axios['delete'](url, produto)
             .then(result => {
                 const lista = this.getListaAtualizada(produto, false)
@@ -103,6 +105,7 @@ export default class updateProduct extends Component {
 
                     onChange={e => this.updateField(e)}
                 />
+            
                 <label> Valor: </label>
                 <input
                     type="text"
@@ -115,6 +118,7 @@ export default class updateProduct extends Component {
 
                     onChange={e => this.updateField(e)}
                 />
+
                 <label> Modelo: </label>
                 <input
                     type="text"
@@ -154,7 +158,7 @@ export default class updateProduct extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.lista.map(
+                        {this.state.produto && this.state.lista.map(
                             (produto) =>
                                 <tr key={produto.id}>
                                     <td>{produto.marca}</td>

@@ -2,10 +2,6 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5255/api/Home";
 
-// Alterar Produtos: role adm
-// Alterar Usuario: role user
-// Listar Produtos: todos
-
 const user = JSON.parse(localStorage.getItem('user'));
 
 const getPublicContent = () => {
@@ -22,13 +18,20 @@ const getAuthenticatedBoard = async () => {
 };
 
 const isCurrentUserAdm = () => {
-    return user.role == 'Cliente' ? false : true;
+    console.log('user role :::::' + user.role)
+    return user.role === 'Cliente' ? false : true;
+}
+
+const isCurrentUserCliente = () => {
+    console.log('user role :::::' + user.role)
+    return user.role !== 'Cliente' ? true : false;
 }
 
 const UserService = {
     getPublicContent,
     getAuthenticatedBoard,
-    isCurrentUserAdm
+    isCurrentUserAdm,
+    isCurrentUserCliente
 };
 
 export default UserService;

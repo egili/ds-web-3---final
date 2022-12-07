@@ -53,7 +53,7 @@ export default class insertUser extends Component {
             .then ((res)=> {
                 console.log('res aqui ' + res)
                 if (res){
-                    window.alert('sucesso ao inserir novo usuario')
+                    window.alert('sucesso ao inserir o usuario ' + usuario.nome)
                 } else {
                     window.alert('erro ao inserir novo usuario')
                     toast.error("erro")
