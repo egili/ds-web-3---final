@@ -18,7 +18,7 @@ export default function Menu(props) {
     return (
         <Navbar className='nav' variant="dark">
             <Container>
-                <Navbar.Brand href="/">Mobile Store</Navbar.Brand>
+                <Navbar.Brand href="/">Loja de Celulares</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="/produtos">Catálogo</Nav.Link>
                     {currentUser ? (
